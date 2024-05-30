@@ -62,4 +62,22 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+
+    const showLogin = document.getElementById("exampleModal");
+    const value = showLogin.title;
+
+    if (value !== null && value) {
+        console.log("Vamos a iniciar sesión");
+        const myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+            keyboard: false
+        });
+        myModal.show();
+    }else{
+        showLogin.setAttribute("title", "");
+        // Cerrar el modal
+        const myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
+        myModal.hide();
+        console.log("NO Vamos a iniciar sesión");
+    }
+
 });
