@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="es">
 <head>
@@ -34,11 +35,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <li class="nav-item mx-3">
+                        <% if (session.getAttribute("user") == null) { %>
                         <a class="nav-link active" aria-current="page" href="#" aria-controls="offcanvasResponsive"
                            data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar sesión</a>
+                        <%} else {%>
+                        <a href="${pageContext.request.contextPath}/showPerfil" class="text-decoration-none"><i class="bi bi-person-badge">${sessionScope.user.getNombre_usuario()}</i></a>
+                        <%}%>
+
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" title="${sessionScope.showLogin}" id="exampleModal" tabindex="-1"
+                             aria-labelledby="exampleModalLabel"
                              aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -50,7 +57,7 @@
                                     <div class="modal-body">
                                         <form class="row g-3"
 
-                                              id="formulario" action="${pageContext.request.contextPath}/login"
+                                              id="formulario" action="${pageContext.request.contextPath}/actionLogin"
                                               method="post">
 
                                             <!-- Mostrar el campo de nombre de usuario y contraseña tanto en inicio de sesión como en registro -->
@@ -95,14 +102,12 @@
 
                                             <div class="modal-footer">
                                                 <button class="btn btn-primary" type="submit" value="login"
-                                                        name="accion"
-                                                        id="login">Iniciar
+                                                        name="action">Iniciar
                                                     sesión
                                                 </button>
 
-                                                <button class="btn btn-secondary" type="submit" value="logout"
-                                                        name="accion"
-                                                        id="logout">Registrarse
+                                                <button class="btn btn-secondary" type="submit" value="signUp"
+                                                        name="action">Registrarse
                                                 </button>
                                             </div>
                                         </form>
@@ -112,8 +117,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cerrar sesión</a>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/logout">Cerrar sesión</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -123,6 +128,20 @@
             </div>
         </div>
     </nav>
+
+    <% if (request.getAttribute("mensaje") != null) { %>
+    <% if (((String) request.getAttribute("mensaje")).toLowerCase().contains("no") || ((String) request.getAttribute("mensaje")).toLowerCase().contains("error")) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error:</strong> <%= request.getAttribute("mensaje") %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } else {%>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Éxito:</strong> <%= request.getAttribute("mensaje") %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% } %>
+    <% } %>
 </header>
 
 <main class="flex-grow-1">

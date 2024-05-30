@@ -3,86 +3,45 @@ package es.unex.cum.tw.models;
 import java.util.Objects;
 
 public class Usuario {
-    private int id;
-    private String nombre;
-    private String apellidos;
-    private String email;
-    private String username;
-    private String password;
-
+    private int id_Usuario;
+    private String nombre_usuario;
+    private String contrasena;
 
     public Usuario() {
-        id = 0;
-        nombre = "";
-        apellidos = "";
-        email = "";
-        username = "";
-        password = "";
+        this.id_Usuario = 0;
+        this.nombre_usuario = "";
+        this.contrasena = "";
     }
 
-    public Usuario(int id, String nombre, String apellidos, String email, String username, String password) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
-        this.username = username;
-        this.password = password;
+    public Usuario(int id_Usuario, String nombre_usuario, String contrasena) {
+        this.id_Usuario = id_Usuario;
+        this.nombre_usuario = nombre_usuario;
+        this.contrasena = contrasena;
     }
 
-    public Usuario(String nombre, String apellidos, String email, String username, String password) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
-        this.username = username;
-        this.password = password;
+    public Usuario(String nombre_usuario, String contrasena) {
+        this.nombre_usuario = nombre_usuario;
+        this.contrasena = contrasena;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getId_Usuario() {
+        return id_Usuario;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getNombre_usuario() {
+        return nombre_usuario;
     }
 
-    public String getEmail() {
-        return email;
+    public void setNombre_usuario(String nombre_usuario) {
+        this.nombre_usuario = nombre_usuario;
     }
 
-    public String getUsername() {
-        return username;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     @Override
@@ -90,24 +49,11 @@ public class Usuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return Objects.equals(id, usuario.id) && Objects.equals(nombre, usuario.nombre) && Objects.equals(apellidos, usuario.apellidos) && Objects.equals(email, usuario.email) && Objects.equals(username, usuario.username) && Objects.equals(password, usuario.password);
+        return id_Usuario == usuario.id_Usuario && Objects.equals(nombre_usuario, usuario.nombre_usuario) && Objects.equals(contrasena, usuario.contrasena);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, apellidos, email, username, password);
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
-        sb.append("id=").append(id);
-        sb.append(", nombre='").append(nombre).append('\'');
-        sb.append(", apellidos='").append(apellidos).append('\'');
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", username='").append(username).append('\'');
-        sb.append(", password='").append(password).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return Objects.hash(id_Usuario, nombre_usuario, contrasena);
     }
 }

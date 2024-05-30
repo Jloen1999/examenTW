@@ -1,7 +1,6 @@
-/*
 package es.unex.cum.tw.servlets;
 
-import es.unex.cum.tw.models.User;
+import es.unex.cum.tw.models.Usuario;
 import es.unex.cum.tw.services.LoginService;
 import es.unex.cum.tw.services.LoginServiceImpl;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,12 +12,11 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
 
-*/
 /**
- * Servlet que se encarga de cerrar la sesión de un usuario.
  * @author Jose Luis Obiang Ela Nanguang
- * @version 1.0 12-05-2024, Sun, 11:51
- *//*
+ * @version 1.0 30-05-2024, Thu, 06:19
+ */
+
 
 @WebServlet(
         name = "LogoutServlet",
@@ -30,7 +28,7 @@ public class LogoutServlet extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
         LoginService auth = new LoginServiceImpl();
-        Optional<Usuario> userOptional = auth.authenticate(request); // Obtener el usuario de la sesión
+        Optional<Usuario> userOptional = auth.verifyUserSession(request); // Obtener el usuario de la sesión
 
         if (userOptional.isPresent()) { // Si el usuario está logueado
             HttpSession session = request.getSession();
@@ -42,4 +40,3 @@ public class LogoutServlet extends HttpServlet {
     }
 
 }
-*/

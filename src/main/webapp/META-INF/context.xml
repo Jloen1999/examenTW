@@ -2,6 +2,7 @@
 <Context clearReferencesStopThreads="true">
 	<Resource name="jdbc/MysqlDB" auth="Container"
 			  type="javax.sql.DataSource" maxTotal="20" maxIdle="10" maxWaitMillis="100000"
-			  driverClassName="org.mariadb.jdbc.Driver" url="jdbc:mariadb://localhost:3306/tw"
+			  driverClassName="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3306/banco"
 			  username="tw" password="tw2324"/>
 </Context>
+		<!--driverClassName="org.mariadb.jdbc.Driver" url="jdbc:mariadb://localhost:3306/tw"-->

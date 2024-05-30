@@ -32,7 +32,8 @@ public class LoginFilter implements Filter {
         HttpSession session = ((HttpServletRequest)request).getSession(true);
         logger.info("checking user in session");
         if(session.getAttribute("user") == null) {
-            session.setAttribute("error", "No tienes permisos para acceder a la página solicitada");
+            session.setAttribute("mensaje", "No tienes permisos para acceder a la página solicitada");
+            session.setAttribute("showLogin", true);
             logger.info("session not ok");
             res.sendRedirect("index.jsp");
         }
