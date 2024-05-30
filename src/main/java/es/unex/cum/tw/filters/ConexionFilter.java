@@ -1,4 +1,4 @@
-package es.unex.cum.tw.examentw.filters;
+package es.unex.cum.tw.filters;
 
 import es.unex.cum.tw.services.ServiceJdbcException;
 import es.unex.cum.tw.util.ConexionBD_DSPool;

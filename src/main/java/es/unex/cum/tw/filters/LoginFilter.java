@@ -1,4 +1,4 @@
-package es.unex.cum.tw.examentw.filters;
+package es.unex.cum.tw.filters;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -32,7 +32,8 @@ public class LoginFilter implements Filter {
         HttpSession session = ((HttpServletRequest)request).getSession(true);
         logger.info("checking user in session");
         if(session.getAttribute("user") == null) {
-            req.setAttribute("visibleLogin", true);
+            session.setAttribute("error", "No tienes permisos para acceder a la página solicitada");
+            logger.info("session not ok");
             res.sendRedirect("index.jsp");
         }
         else

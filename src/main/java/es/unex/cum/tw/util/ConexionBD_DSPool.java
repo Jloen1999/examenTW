@@ -1,4 +1,4 @@
-package es.unex.cum.tw.examentw.util;
+package es.unex.cum.tw.util;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
