@@ -1,4 +1,4 @@
-package es.unex.cum.tw.examentw.filters;
+package es.unex.cum.tw.filters;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;

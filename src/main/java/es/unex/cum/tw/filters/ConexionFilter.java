@@ -1,7 +1,7 @@
-package es.unex.cum.tw.examentw.filters;
+package es.unex.cum.tw.filters;
 
-import es.unex.cum.tw.services.ServiceJdbcException;
 import es.unex.cum.tw.util.ConexionBD_DSPool;
+import es.unex.cum.tw.util.ServiceJdbcException;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletResponse;
